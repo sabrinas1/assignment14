@@ -2,6 +2,16 @@
 <head> 
     <title>Stock Market Ticker Pt 1</title>
     <meta charset="utf-8" />
+    <script>
+        app.on('ready', () => {
+            mainWindow = new BrowserWindow({
+                webPreferences: {
+                    nodeIntegration: true,
+                    contextIsolation: false,
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
