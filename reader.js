@@ -1,6 +1,6 @@
 const myForm = document.getElementById("myForm");
 const csvFile = document.getElementById("csvFile");
-var MongoClient = require('mongodb').MongoClient;
+//var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://sabrinas1:Jimrose1@cluster0-shard-00-00.bznhx.mongodb.net:27017,cluster0-shard-00-01.bznhx.mongodb.net:27017,cluster0-shard-00-02.bznhx.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-tirrnw-shard-0&authSource=admin&retryWrites=true&w=majority";
 
 function csvToArray(str, delimiter = ",") {
