@@ -2,16 +2,6 @@
 <head> 
     <title>Stock Market Ticker Pt 1</title>
     <meta charset="utf-8" />
-    <script>
-        document.on('ready', () => {
-            mainWindow = new BrowserWindow({
-                webPreferences: {
-                    nodeIntegration: true,
-                    contextIsolation: false,
-                }
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -20,6 +10,8 @@
         <br />
         <input type="submit" value="Submit" />
     </form>
+    webPreferences.nodeIntegration = true;
+    webPreferences.contextIsolation = false;
     <script>
         const myForm = document.getElementById("myForm");
         const csvFile = document.getElementById("csvFile");
