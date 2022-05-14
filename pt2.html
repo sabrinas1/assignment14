@@ -5,7 +5,7 @@
     <script>
         function go() {
             console.log("go");
-            name = $('#name').val();
+            name = $('input[type=text]').val();
             console.log(name);
             if (name == 'Search' || name == '') {
                 alert('Please enter a company name or ticker')
@@ -29,8 +29,8 @@
 
 <body>
     <form id="form">
-        <input type="text" id="name" placeholder="Search">
-        <p id="method">
+        <input type="text" name="name" placeholder="Search">
+        <p>
         <input type="radio" name="method" value="Company" checked="checked" />Company Name
         <input type="radio" name="method" value="Ticker"/>Stock Ticker
         </p>
