@@ -1,7 +1,15 @@
+const http = require('http')
+const fs = require('fs')
+
+server.listen(process.env.PORT ||3000)
+
+window.open("https://sabrinas1.github.io/assignment14/")
+
 const myForm = document.getElementById("myForm");
 const csvFile = document.getElementById("csvFile");
-//var MongoClient = require('mongodb').MongoClient;
-var uri = "mongodb://sabrinas1:Jimrose1@cluster0-shard-00-00.bznhx.mongodb.net:27017,cluster0-shard-00-01.bznhx.mongodb.net:27017,cluster0-shard-00-02.bznhx.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-tirrnw-shard-0&authSource=admin&retryWrites=true&w=majority";
+var mongo = require('mongodb');
+var MongoClient = mongo.MongoClient;
+var url = "mongodb://sabrinas1:Jimrose1@cluster0-shard-00-00.bznhx.mongodb.net:27017,cluster0-shard-00-01.bznhx.mongodb.net:27017,cluster0-shard-00-02.bznhx.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-tirrnw-shard-0&authSource=admin&retryWrites=true&w=majority";
 
 function csvToArray(str, delimiter = ",") {
 
@@ -29,13 +37,14 @@ myForm.addEventListener("submit", function (e) {
     reader.onload = function (e) {
         const text = e.target.result;
         const data = csvToArray(text);
-        MongoClient.connect(uri, function (err, client) {
-            const collection = client.db("myFirstDatabase").collection("companies");
+        MongoClient.connect(url, { useUnitedTopology: true }, function (err, db) {
+            var dbo = db.db("companies");
+            var collection = dbo.collection("companies");
             collection.insertMany(data, function (err, result) {
                 if (err) throw err;
                 console.log("Number inserted: " + res.insertedCount);
-                client.close();
             })
+            db.close();
         });
     };
 
