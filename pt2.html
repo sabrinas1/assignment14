@@ -4,12 +4,15 @@
     <title>Stock Ticker Part 2</title>
     <script>
         function go() {
+            console.log("go");
             name = $('#name').val();
+            console.log(name);
             if (name == 'Search' || name == '') {
                 alert('Please enter a company name or ticker')
                 return
             }
             method = $('input[type=radio][checked=checked]').val();
+            console.log(method);
             if (method == 'Company') {
                 company(name);
             } else {
@@ -18,7 +21,7 @@
         }
 
         function company(name) {
-            
+
         }
 
     </script>
@@ -35,7 +38,7 @@
     </form>
 
     <script>
-        document.getElementById('form').addEventListener('submit', function(){go()})
+        document.getElementById("form").addEventListener('submit', function(){go()})
     </script>
 </body>
 </html>
