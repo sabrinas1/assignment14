@@ -2,14 +2,40 @@
 <head>
     <meta charset="UTF-8" />
     <title>Stock Ticker Part 2</title>
+    <script>
+        function go() {
+            name = $('#name').val();
+            if (name == 'Search' || name == '') {
+                alert('Please enter a company name or ticker')
+                return
+            }
+            method = $('input[type=radio][checked=checked]').val();
+            if (method == 'Company') {
+                company(name);
+            } else {
+                ticker(name);
+            }
+        }
+
+        function company(name) {
+            
+        }
+
+    </script>
 </head>
 
 <body>
-    <form>
-        <input type="text" name="name" placeholder="Search">
+    <form id="form">
+        <input type="text" id="name" placeholder="Search">
+        <p id="method">
         <input type="radio" name="method" value="Company" checked="checked" />Company Name
         <input type="radio" name="method" value="Ticker"/>Stock Ticker
-
+        </p>
+        <input type="submit" value="Submit" />
     </form>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(){go()})
+    </script>
 </body>
 </html>
